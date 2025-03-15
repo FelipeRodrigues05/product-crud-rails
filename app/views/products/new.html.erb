@@ -1,0 +1,10 @@
+<% content_for :title, "New Product" %>
+
+<h1 class="text-lg">New Product</h1>
+
+<%= render "form", product: @product %>
+
+<div class="flex flex-row gap-3 mt-3">
+  <%= link_to "Back", products_path, class: "text-red-500 cursor-pointer hover:underline" %>
+  <%= link_to "Show this product", @product, class: "text-blue-500 cursor-pointer hover:underline" %>
+</div>

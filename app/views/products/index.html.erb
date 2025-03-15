@@ -1,0 +1,32 @@
+<% content_for :title, "Product List" %>
+
+<h1 class="text-lg">Products</h1>
+
+<p class="text-green-500 p-2"><%= notice %></p>
+
+<div id="products">
+  <table class="w-full text-center my-2">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Actions</th>
+    </tr>
+    <% @products.each do |product| %>
+      <tr>
+        <td class="py-2"><%= product.id %></td>
+        <td><%= product.name %></td>
+        <td><%= product.description %></td>
+        <td><%= product.price %></td>
+        <td class="flex justify-center gap-2">
+          <%= link_to "Show", product, class: "bg-blue-300 p-1 text-black w-full rounded-lg hover:brightness-90 transition-all" %>
+          <%= link_to "Update", edit_product_path(product), class: "bg-purple-300 text-black rounded-lg p-1 w-full cursor-pointer hover:brightness-90 transition-all" %>
+          <%= button_to "Delete", product, method: :delete, class: "bg-red-300 text-black rounded-lg p-1 w-full cursor-pointer hover:brightness-90 transition-all" %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= link_to "Create product", new_product_path, class: "border p-2 rounded-lg bg-green-500 text-black hover:brightness-90 cursor-pointer text-center" %>
